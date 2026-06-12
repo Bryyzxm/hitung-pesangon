@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berapa Lama Uang Saya Bertahan? Kalkulator Dana Darurat - HitungPesangon</title>
+  <meta name="description" content="Hitung berapa bulan tabungan dan pesangon Anda cukup untuk bertahan tanpa penghasilan, lengkap dengan saran penghematan pengeluaran.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">Hitung<span>Pesangon</span></a>
+    <nav>
+      <a href="pesangon.html">Pesangon</a>
+      <a href="jkp-jht.html">JKP & JHT</a>
+      <a href="burn-rate.html" class="active">Dana Bertahan</a>
+    </nav>
+  </header>
+
+  <div class="ad-slot" aria-hidden="true"><!-- AdSense: header --></div>
+
+  <main class="container">
+    <h1>Berapa Lama Uang Saya Bertahan?</h1>
+    <p class="intro">Masukkan total dana yang Anda miliki dan pengeluaran bulanan untuk mengetahui berapa lama Anda bisa bertahan tanpa penghasilan, serta pos mana yang bisa dihemat.</p>
+
+    <form id="form-burn" class="calc-form" novalidate>
+      <label for="dana">Total dana (tabungan + pesangon + JKP, Rp)</label>
+      <input type="number" id="dana" min="0" placeholder="Contoh: 50000000" required>
+
+      <fieldset>
+        <legend>Pengeluaran bulanan (Rp)</legend>
+        <label for="hunian">Sewa / cicilan tempat tinggal</label>
+        <input type="number" id="hunian" min="0">
+        <label for="makan">Makan & kebutuhan pokok</label>
+        <input type="number" id="makan" min="0">
+        <label for="transport">Transportasi & komunikasi</label>
+        <input type="number" id="transport" min="0">
+        <label for="cicilan">Cicilan utang</label>
+        <input type="number" id="cicilan" min="0">
+        <label for="lainnya">Lainnya</label>
+        <input type="number" id="lainnya" min="0">
+      </fieldset>
+
+      <button type="submit">Hitung Daya Tahan Saya</button>
+      <p id="error-burn" class="error" role="alert"></p>
+    </form>
+
+    <section id="hasil-burn" class="result hidden" aria-live="polite"></section>
+
+    <div class="ad-slot" aria-hidden="true"><!-- AdSense: bawah hasil --></div>
+
+    <section class="explainer">
+      <h2>Tips Bertahan Lebih Lama</h2>
+      <p>Para perencana keuangan menyarankan dana darurat minimal <strong>6 bulan pengeluaran</strong>. Jika hasil Anda di bawah itu, prioritaskan: negosiasi keringanan cicilan, pangkas langganan yang tidak esensial, dan manfaatkan program pelatihan gratis dari JKP untuk mempercepat kembali bekerja.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Disclaimer:</strong> Hasil bersifat estimasi dan bukan nasihat keuangan.</p>
+    <p>&copy; 2026 HitungPesangon</p>
+  </footer>
+
+  <script src="js/burn-rate.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Pesangon PHK 2026 (PP 35/2021) - HitungPesangon</title>
+  <meta name="description" content="Hitung uang pesangon, UPMK, dan uang penggantian hak Anda setelah PHK sesuai UU Cipta Kerja dan PP 35/2021. Lengkap dengan rincian perhitungan.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">Hitung<span>Pesangon</span></a>
+    <nav>
+      <a href="pesangon.html" class="active">Pesangon</a>
+      <a href="jkp-jht.html">JKP & JHT</a>
+      <a href="burn-rate.html">Dana Bertahan</a>
+    </nav>
+  </header>
+
+  <div class="ad-slot" aria-hidden="true"><!-- AdSense: header --></div>
+
+  <main class="container">
+    <h1>Kalkulator Pesangon PHK</h1>
+    <p class="intro">Hitung estimasi hak Anda sesuai <strong>UU Cipta Kerja</strong> dan <strong>PP No. 35 Tahun 2021</strong>: uang pesangon (UP), uang penghargaan masa kerja (UPMK), dan uang penggantian hak (UPH).</p>
+
+    <form id="form-pesangon" class="calc-form" novalidate>
+      <label for="gaji">Gaji pokok + tunjangan tetap per bulan (Rp)</label>
+      <input type="number" id="gaji" min="0" placeholder="Contoh: 7000000" required>
+
+      <label for="masa-tahun">Masa kerja</label>
+      <div class="input-row">
+        <input type="number" id="masa-tahun" min="0" placeholder="Tahun" required>
+        <input type="number" id="masa-bulan" min="0" max="11" placeholder="Bulan">
+      </div>
+
+      <label for="alasan">Alasan PHK</label>
+      <select id="alasan">
+        <option value="efisiensi-rugi">Efisiensi karena perusahaan rugi (UP 0,5x)</option>
+        <option value="efisiensi-cegah">Efisiensi untuk mencegah kerugian (UP 1x)</option>
+        <option value="tutup-rugi">Perusahaan tutup karena rugi (UP 0,5x)</option>
+        <option value="tutup-bukan-rugi">Perusahaan tutup bukan karena rugi (UP 1x)</option>
+        <option value="pailit">Perusahaan pailit (UP 0,5x)</option>
+        <option value="pensiun">Memasuki usia pensiun (UP 1,75x)</option>
+        <option value="meninggal">Pekerja meninggal dunia (UP 2x)</option>
+      </select>
+
+      <label for="sisa-cuti">Sisa cuti tahunan yang belum diambil (hari)</label>
+      <input type="number" id="sisa-cuti" min="0">
+
+      <button type="submit">Hitung Pesangon Saya</button>
+      <p id="error-pesangon" class="error" role="alert"></p>
+    </form>
+
+    <section id="hasil-pesangon" class="result hidden" aria-live="polite"></section>
+
+    <div class="ad-slot" aria-hidden="true"><!-- AdSense: bawah hasil --></div>
+
+    <section class="explainer">
+      <h2>Bagaimana Pesangon Dihitung?</h2>
+      <p>Berdasarkan PP 35/2021, besaran <strong>uang pesangon</strong> ditentukan oleh masa kerja (maksimal 9 bulan upah untuk masa kerja 8 tahun atau lebih), lalu dikalikan faktor pengali sesuai alasan PHK. <strong>UPMK</strong> diberikan mulai masa kerja 3 tahun (2 bulan upah) hingga maksimal 10 bulan upah untuk masa kerja 24 tahun atau lebih. <strong>UPH</strong> mencakup antara lain sisa cuti tahunan yang belum diambil dan biaya kepulangan.</p>
+      <p>Catatan: pekerja yang mengundurkan diri tidak berhak atas UP dan UPMK, hanya UPH dan uang pisah sesuai perjanjian kerja.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Disclaimer:</strong> Hasil bersifat estimasi dan bukan nasihat hukum. Nilai final dapat berbeda sesuai perjanjian kerja, PKB, dan putusan hubungan industrial.</p>
+    <p>&copy; 2026 HitungPesangon</p>
+  </footer>
+
+  <script src="js/pesangon.js"></script>
+</body>
+</html>
