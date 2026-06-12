@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator JKP & JHT BPJS Ketenagakerjaan - HitungPesangon</title>
+  <meta name="description" content="Estimasi manfaat tunai Jaminan Kehilangan Pekerjaan (JKP) selama 6 bulan dan perkiraan saldo JHT yang dapat dicairkan setelah PHK.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">Hitung<span>Pesangon</span></a>
+    <nav>
+      <a href="pesangon.html">Pesangon</a>
+      <a href="jkp-jht.html" class="active">JKP & JHT</a>
+      <a href="burn-rate.html">Dana Bertahan</a>
+    </nav>
+  </header>
+
+  <div class="ad-slot" aria-hidden="true"><!-- AdSense: header --></div>
+
+  <main class="container">
+    <h1>Kalkulator JKP & JHT</h1>
+    <p class="intro">Setelah PHK, Anda berhak atas manfaat tunai <strong>Jaminan Kehilangan Pekerjaan (JKP)</strong> selama 6 bulan dan dapat mencairkan saldo <strong>Jaminan Hari Tua (JHT)</strong> dari BPJS Ketenagakerjaan.</p>
+
+    <form id="form-jkp" class="calc-form" novalidate>
+      <label for="upah">Upah terakhir yang dilaporkan per bulan (Rp)</label>
+      <input type="number" id="upah" min="0" placeholder="Contoh: 6000000" required>
+
+      <label for="lama-iuran">Lama menjadi peserta JHT (tahun)</label>
+      <input type="number" id="lama-iuran" min="0" step="0.5" placeholder="Contoh: 5" required>
+
+      <button type="submit">Hitung Estimasi Saya</button>
+      <p id="error-jkp" class="error" role="alert"></p>
+    </form>
+
+    <section id="hasil-jkp" class="result hidden" aria-live="polite"></section>
+
+    <div class="ad-slot" aria-hidden="true"><!-- AdSense: bawah hasil --></div>
+
+    <section class="explainer">
+      <h2>Cara Perhitungan</h2>
+      <p><strong>JKP:</strong> manfaat tunai sebesar <strong>45% dari upah</strong> untuk 3 bulan pertama dan <strong>25% dari upah</strong> untuk 3 bulan berikutnya. Upah yang dipakai dibatasi maksimal Rp5.000.000 per bulan. Syarat antara lain kepesertaan minimal 12 bulan dalam 24 bulan terakhir dan PHK bukan karena mengundurkan diri.</p>
+      <p><strong>JHT:</strong> iuran sebesar 5,7% dari upah per bulan (3,7% perusahaan + 2% pekerja). Estimasi di sini adalah akumulasi iuran sederhana; <em>saldo riil Anda lebih besar</em> karena ditambah hasil pengembangan investasi BPJS. Cek saldo pasti di aplikasi JMO.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Disclaimer:</strong> Hasil bersifat estimasi. Nilai pasti mengikuti data kepesertaan resmi BPJS Ketenagakerjaan.</p>
+    <p>&copy; 2026 HitungPesangon</p>
+  </footer>
+
+  <script src="js/jkp-jht.js"></script>
+</body>
+</html>
