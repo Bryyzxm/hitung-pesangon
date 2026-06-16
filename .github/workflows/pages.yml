@@ -40,11 +40,14 @@ jobs:
       - name: Validate static site
         run: python scripts/validate-static.py
 
-      - name: Install Playwright
-        run: npx --yes playwright install --with-deps chromium
+      - name: Install Playwright test runner
+        run: npm install --no-save @playwright/test@1.60.0
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
 
       - name: Playwright smoke tests
-        run: npx --yes playwright test
+        run: npx playwright test
 
       - name: Prepare static site
         run: |
