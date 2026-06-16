@@ -3,22 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kalkulator Pesangon PHK 2026 (PP 35/2021) - HitungPesangon</title>
-    <link rel="canonical" href="https://hitungpesangon.my.id/pesangon.html" />
+    <title>Kalkulator Dana Darurat Ideal 2026 - HitungPesangon</title>
+    <link
+      rel="canonical"
+      href="https://hitungpesangon.my.id/dana-darurat.html"
+    />
     <meta name="theme-color" content="#1a6b54" />
     <meta name="robots" content="index, follow" />
     <meta
       property="og:title"
-      content="Kalkulator Pesangon PHK 2026 (PP 35/2021) - HitungPesangon"
+      content="Kalkulator Dana Darurat Ideal 2026 - HitungPesangon"
     />
     <meta
       property="og:description"
-      content="Hitung uang pesangon, UPMK, dan uang penggantian hak Anda setelah PHK sesuai UU Cipta Kerja dan PP 35/2021. Lengkap dengan rincian perhitungan."
+      content="Hitung target dana darurat ideal berdasarkan pengeluaran bulanan dan jumlah tanggungan. Rekomendasi 3-12 bulan pengeluaran sesuai standar OJK."
     />
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://hitungpesangon.my.id/pesangon.html"
+      content="https://hitungpesangon.my.id/dana-darurat.html"
     />
     <meta
       property="og:image"
@@ -29,11 +32,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Kalkulator Pesangon PHK 2026 (PP 35/2021) - HitungPesangon"
+      content="Kalkulator Dana Darurat Ideal 2026 - HitungPesangon"
     />
     <meta
       name="twitter:description"
-      content="Hitung uang pesangon, UPMK, dan uang penggantian hak Anda setelah PHK sesuai UU Cipta Kerja dan PP 35/2021. Lengkap dengan rincian perhitungan."
+      content="Hitung target dana darurat ideal berdasarkan pengeluaran bulanan dan jumlah tanggungan. Rekomendasi 3-12 bulan pengeluaran sesuai standar OJK."
     />
     <meta
       name="twitter:image"
@@ -47,9 +50,9 @@
       {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Kalkulator Pesangon PHK 2026",
-        "description": "Hitung uang pesangon, UPMK, dan uang penggantian hak Anda setelah PHK sesuai UU Cipta Kerja dan PP 35/2021.",
-        "url": "https://hitungpesangon.my.id/pesangon.html",
+        "name": "Kalkulator Dana Darurat 2026",
+        "description": "Hitung target dana darurat ideal berdasarkan pengeluaran bulanan dan jumlah tanggungan.",
+        "url": "https://hitungpesangon.my.id/dana-darurat.html",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "All",
         "offers": {
@@ -78,8 +81,8 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Kalkulator Pesangon PHK",
-            "item": "https://hitungpesangon.my.id/pesangon.html"
+            "name": "Kalkulator Dana Darurat",
+            "item": "https://hitungpesangon.my.id/dana-darurat.html"
           }
         ]
       }
@@ -90,25 +93,23 @@
     <header class="site-header">
       <a href="index.html" class="brand">Hitung<span>Pesangon</span></a>
       <nav aria-label="Navigasi utama">
-        <a href="pesangon.html" class="active">Pesangon</a>
+        <a href="pesangon.html">Pesangon</a>
         <a href="jkp-jht.html">JKP &amp; JHT</a>
         <a href="burn-rate.html">Dana Bertahan</a>
         <a href="thr.html">THR</a>
         <a href="pph21.html">PPh 21</a>
         <a href="bpjs-kesehatan.html">BPJS Kesehatan</a>
         <a href="gaji-bersih.html">Gaji Bersih</a>
-        <a href="dana-darurat.html">Dana Darurat</a>
+        <a href="dana-darurat.html" class="active">Dana Darurat</a>
         <a href="simulasi-pensiun.html">Pensiun</a>
         <a href="uang-sakit-cuti.html">Sakit &amp; Cuti</a>
       </nav>
     </header>
-
     <main id="main-content" class="container" tabindex="-1">
-      <h1>Kalkulator Pesangon PHK</h1>
+      <h1>Kalkulator Dana Darurat Ideal</h1>
       <p class="intro">
-        Hitung estimasi hak Anda sesuai <strong>UU Cipta Kerja</strong> dan
-        <strong>PP No. 35 Tahun 2021</strong>: uang pesangon (UP), uang
-        penghargaan masa kerja (UPMK), dan uang penggantian hak (UPH).
+        Hitung berapa dana darurat yang sebaiknya Anda miliki berdasarkan
+        pengeluaran bulanan, jumlah tanggungan, dan kondisi pekerjaan Anda.
       </p>
 
       <noscript
@@ -118,92 +119,66 @@
         </p></noscript
       >
 
-      <form id="form-pesangon" class="calc-form" novalidate>
-        <label for="gaji">Gaji pokok + tunjangan tetap per bulan (Rp)</label>
+      <form id="form-dana" class="calc-form" novalidate>
+        <label for="pengeluaran">Pengeluaran bulanan total (Rp)</label>
         <input
           type="number"
-          id="gaji"
+          id="pengeluaran"
           min="0"
-          placeholder="Contoh: 7000000"
+          placeholder="Contoh: 5000000"
           required
-          aria-describedby="error-pesangon"
+          aria-describedby="error-dana"
         />
 
-        <label for="masa-tahun">Masa kerja</label>
-        <div class="input-row">
-          <input
-            type="number"
-            id="masa-tahun"
-            min="0"
-            placeholder="Tahun"
-            required
-            aria-describedby="error-pesangon"
-          />
-          <input
-            type="number"
-            id="masa-bulan"
-            min="0"
-            max="11"
-            placeholder="Bulan"
-            aria-describedby="error-pesangon"
-          />
-        </div>
-
-        <label for="alasan">Alasan PHK</label>
-        <select id="alasan" aria-describedby="error-pesangon">
-          <option value="efisiensi-rugi">
-            Efisiensi karena perusahaan rugi (UP 0,5x)
-          </option>
-          <option value="efisiensi-cegah">
-            Efisiensi untuk mencegah kerugian (UP 1x)
-          </option>
-          <option value="tutup-rugi">
-            Perusahaan tutup karena rugi (UP 0,5x)
-          </option>
-          <option value="tutup-bukan-rugi">
-            Perusahaan tutup bukan karena rugi (UP 1x)
-          </option>
-          <option value="pailit">Perusahaan pailit (UP 0,5x)</option>
-          <option value="pensiun">Memasuki usia pensiun (UP 1,75x)</option>
-          <option value="meninggal">Pekerja meninggal dunia (UP 2x)</option>
+        <label for="tanggungan">Jumlah tanggungan</label>
+        <select id="tanggungan" aria-describedby="error-dana">
+          <option value="0">Tidak ada (Single)</option>
+          <option value="1">1 orang</option>
+          <option value="2">2 orang</option>
+          <option value="3">3 orang atau lebih</option>
         </select>
 
-        <label for="sisa-cuti"
-          >Sisa cuti tahunan yang belum diambil (hari)</label
-        >
+        <label for="status-kerja">Status pekerjaan</label>
+        <select id="status-kerja" aria-describedby="error-dana">
+          <option value="aktif">Masih bekerja</option>
+          <option value="cari-kerja">Sedang mencari kerja</option>
+        </select>
+
+        <label for="dana-saat-ini">Dana darurat saat ini (Rp) — opsional</label>
         <input
           type="number"
-          id="sisa-cuti"
+          id="dana-saat-ini"
           min="0"
-          aria-describedby="error-pesangon"
+          placeholder="Contoh: 10000000"
+          aria-describedby="error-dana"
         />
 
-        <button type="submit">Hitung Pesangon Saya</button>
-        <p id="error-pesangon" class="error" role="alert"></p>
+        <button type="submit">Hitung Target Dana Darurat</button>
+        <p id="error-dana" class="error" role="alert"></p>
       </form>
 
       <section
-        id="hasil-pesangon"
+        id="hasil-dana"
         class="result hidden"
         tabindex="-1"
         aria-live="polite"
       ></section>
-
       <section class="explainer">
-        <h2>Bagaimana Pesangon Dihitung?</h2>
+        <h2>Mengapa Penting Punya Dana Darurat?</h2>
         <p>
-          Berdasarkan PP 35/2021, besaran
-          <strong>uang pesangon</strong> ditentukan oleh masa kerja (maksimal 9
-          bulan upah untuk masa kerja 8 tahun atau lebih), lalu dikalikan faktor
-          pengali sesuai alasan PHK. <strong>UPMK</strong> diberikan mulai masa
-          kerja 3 tahun (2 bulan upah) hingga maksimal 10 bulan upah untuk masa
-          kerja 24 tahun atau lebih. <strong>UPH</strong> mencakup antara lain
-          sisa cuti tahunan yang belum diambil dan biaya kepulangan.
+          Dana darurat adalah tabungan khusus untuk kondisi tak terduga: PHK,
+          sakit, atau pengeluaran mendesak. Berdasarkan rekomendasi
+          <strong>OJK (Otoritas Jasa Keuangan)</strong>, idealnya Anda memiliki
+          dana darurat setara <strong>3-12 bulan pengeluaran</strong>,
+          tergantung kondisi:
         </p>
-        <p>
-          Catatan: pekerja yang mengundurkan diri tidak berhak atas UP dan UPMK,
-          hanya UPH dan uang pisah sesuai perjanjian kerja.
-        </p>
+        <ul class="explainer-list">
+          <li><strong>Single, masih kerja:</strong> 3-6 bulan pengeluaran</li>
+          <li>
+            <strong>Berpasangan / 1 tanggungan:</strong> 6-9 bulan pengeluaran
+          </li>
+          <li><strong>2+ tanggungan:</strong> 9-12 bulan pengeluaran</li>
+        </ul>
       </section>
 
       <p>
@@ -237,13 +212,13 @@
     <footer class="site-footer">
       <p>
         <strong>Disclaimer:</strong> Hasil bersifat estimasi dan bukan nasihat
-        hukum. Nilai final dapat berbeda sesuai perjanjian kerja, PKB, dan
-        putusan hubungan industrial.
+        keuangan. Konsultasikan dengan perencana keuangan untuk rekomendasi
+        personal.
       </p>
       <p>&copy; 2026 HitungPesangon</p>
     </footer>
 
     <script src="js/format.js"></script>
-    <script src="js/pesangon.js"></script>
+    <script src="js/dana-darurat.js"></script>
   </body>
 </html>

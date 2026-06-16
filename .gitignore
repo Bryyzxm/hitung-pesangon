@@ -1,0 +1,13 @@
+# Agent / tooling noise
+.omo/
+.opencode/
+.omc/
+
+# Dependencies (if ever introduced)
+node_modules/
+
+# OS / editor artifacts
+.DS_Store
+*.swp
+*.tmp
+*.log

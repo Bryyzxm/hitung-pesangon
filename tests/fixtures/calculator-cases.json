@@ -1,0 +1,174 @@
+{
+  "pesangon": {
+    "page": "pesangon.html",
+    "formId": "form-pesangon",
+    "resultId": "hasil-pesangon",
+    "inputs": [
+      { "id": "gaji", "value": "10000000" },
+      { "id": "masa-tahun", "value": "5" },
+      { "id": "masa-bulan", "value": "0" },
+      { "id": "alasan", "value": "efisiensi-cegah", "type": "select" },
+      { "id": "sisa-cuti", "value": "0" }
+    ],
+    "bigNumber": "Rp 80.000.000",
+    "expectedCells": [
+      ["Uang Pesangon (UP)", "6 bln upah × 1x", "Rp 60.000.000"],
+      ["Penghargaan Masa Kerja (UPMK)", "2 bln upah", "Rp 20.000.000"],
+      ["Penggantian Hak (UPH)", "0 hari cuti", "Rp 0"]
+    ]
+  },
+  "thr": {
+    "page": "thr.html",
+    "formId": "form-thr",
+    "resultId": "hasil-thr",
+    "inputs": [
+      { "id": "gaji", "value": "12000000" },
+      { "id": "masa-kerja", "value": "6" }
+    ],
+    "bigNumber": "Rp 6.000.000",
+    "expectedCells": [
+      ["Upah per bulan", "Gaji + tunjangan tetap", "Rp 12.000.000"],
+      ["Masa kerja", "6 dari 12 bulan", "50.0%"],
+      ["Total THR", "Rp 6.000.000"]
+    ]
+  },
+  "gaji-bersih": {
+    "page": "gaji-bersih.html",
+    "formId": "form-gaji",
+    "resultId": "hasil-gaji",
+    "inputs": [
+      { "id": "gaji", "value": "10000000" },
+      { "id": "tunjangan-tetap", "value": "0" },
+      { "id": "tunjangan-tidak-tetap", "value": "0" },
+      { "id": "status-ptkp", "value": "TK/0", "type": "select" },
+      { "id": "bpjs-option", "value": "potong-gaji", "type": "select" }
+    ],
+    "bigNumber": "Rp 9.262.777",
+    "expectedCells": [
+      ["PPh 21", "Tarif progresif", "-Rp 341.667"],
+      ["BPJS Kesehatan", "1% pekerja", "-Rp 100.000"],
+      ["JHT (pekerja)", "2% dari upah", "-Rp 200.000"],
+      ["JP (pekerja)", "1% dari upah", "-Rp 95.556"]
+    ]
+  },
+  "pph21": {
+    "page": "pph21.html",
+    "formId": "form-pph21",
+    "resultId": "hasil-pph21",
+    "inputs": [
+      { "id": "gaji", "value": "10000000" },
+      { "id": "tunjangan-tetap", "value": "0" },
+      { "id": "tunjangan-tidak-tetap", "value": "0" },
+      { "id": "status-ptkp", "value": "TK/0", "type": "select" }
+    ],
+    "bigNumber": "Rp 9.658.333",
+    "expectedCells": [
+      ["Penghasilan bruto per tahun", "Rp 10.000.000 × 12", "Rp 120.000.000"],
+      ["PTKP (TK/0)", "Pengurangan wajib", "Rp 54.000.000"],
+      ["PPh 21 per tahun", "Tarif progresif Pasal 17", "Rp 4.100.000"],
+      ["PPh 21 per bulan", "Tahunan ÷ 12", "Rp 341.667"]
+    ]
+  },
+  "jkp-jht": {
+    "page": "jkp-jht.html",
+    "formId": "form-jkp",
+    "resultId": "hasil-jkp",
+    "inputs": [
+      { "id": "upah", "value": "5000000" },
+      { "id": "lama-iuran", "value": "5" }
+    ],
+    "bigNumber": "Rp 17.100.000",
+    "expectedCells": [
+      ["JKP bulan ke-1 s.d. 3", "45% × Rp 5.000.000 / bln", "Rp 2.250.000 / bln"],
+      ["JKP bulan ke-4 s.d. 6", "25% × Rp 5.000.000 / bln", "Rp 1.250.000 / bln"],
+      ["Total JKP (6 bulan)", "Rp 10.500.000"]
+    ]
+  },
+  "burn-rate": {
+    "page": "burn-rate.html",
+    "formId": "form-burn",
+    "resultId": "hasil-burn",
+    "inputs": [
+      { "id": "dana", "value": "80000000" },
+      { "id": "hunian", "value": "3000000" },
+      { "id": "makan", "value": "2000000" },
+      { "id": "transport", "value": "1000000" },
+      { "id": "cicilan", "value": "0" },
+      { "id": "lainnya", "value": "0" }
+    ],
+    "bigNumber": "13 bulan 10 hari",
+    "expectedTexts": [
+      "Posisi Anda relatif aman",
+      "Rp 6.000.000"
+    ]
+  },
+  "bpjs-kesehatan": {
+    "page": "bpjs-kesehatan.html",
+    "formId": "form-bpjs",
+    "resultId": "hasil-bpjs",
+    "inputs": [
+      { "id": "upah", "value": "10000000" },
+      { "id": "tanggungan", "value": "1" }
+    ],
+    "bigNumber": "Rp 200.000",
+    "expectedCells": [
+      ["Iuran pekerja (1%)", "Dipotong dari gaji", "Rp 100.000"],
+      ["Iuran perusahaan (3%)", "Ditanggung perusahaan", "Rp 300.000"],
+      ["Iuran tanggungan (1 orang × 1%)", "Ditambah ke potong gaji", "Rp 100.000"],
+      ["Total iuran per bulan", "Rp 500.000"]
+    ]
+  },
+  "dana-darurat": {
+    "page": "dana-darurat.html",
+    "formId": "form-dana",
+    "resultId": "hasil-dana",
+    "inputs": [
+      { "id": "pengeluaran", "value": "5000000" },
+      { "id": "tanggungan", "value": "0", "type": "select" },
+      { "id": "status-kerja", "value": "aktif", "type": "select" },
+      { "id": "dana-saat-ini", "value": "0" }
+    ],
+    "bigNumber": "Rp 30.000.000",
+    "expectedCells": [
+      ["Minimum", "3 bulan", "Rp 15.000.000"],
+      ["Ideal", "6 bulan", "Rp 30.000.000"],
+      ["Nyaman", "9 bulan", "Rp 45.000.000"]
+    ]
+  },
+  "simulasi-pensiun": {
+    "page": "simulasi-pensiun.html",
+    "formId": "form-pensiun",
+    "resultId": "hasil-pensiun",
+    "inputs": [
+      { "id": "usia-sekarang", "value": "30" },
+      { "id": "usia-pensiun", "value": "55" },
+      { "id": "pengeluaran", "value": "5000000" },
+      { "id": "tabungan", "value": "50000000" },
+      { "id": "kontribusi", "value": "1000000" },
+      { "id": "inflasi", "value": "5" },
+      { "id": "return-investasi", "value": "8" }
+    ],
+    "bigNumber": "Defisit: Rp 2.770.175.775",
+    "expectedCells": [
+      ["Tahun tersisa hingga pensiun", "25 tahun"],
+      ["Pengeluaran saat pensiun/bulan", "Rp 16.931.775"],
+      ["Total dibutuhkan (20 tahun)", "Rp 4.063.625.929"],
+      ["Total dana pensiun terkumpul", "Rp 1.293.450.154"]
+    ]
+  },
+  "uang-sakit-cuti": {
+    "page": "uang-sakit-cuti.html",
+    "formId": "form-cuti",
+    "resultId": "hasil-cuti",
+    "inputs": [
+      { "id": "gaji", "value": "5000000" },
+      { "id": "hari-sakit", "value": "10" },
+      { "id": "hari-cuti", "value": "3" }
+    ],
+    "bigNumber": "Rp 1.700.000",
+    "expectedCells": [
+      ["4 bulan pertama (25%)", "10 hari × 25% × Rp 200.000", "Rp 500.000"],
+      ["Uang cuti tahunan", "3 hari × 2 × Rp 200.000", "Rp 1.200.000"]
+    ]
+  }
+}

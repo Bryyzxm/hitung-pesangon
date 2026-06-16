@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulasi Dana Pensiun 2026 - HitungPesangon</title>
+    <link
+      rel="canonical"
+      href="https://hitungpesangon.my.id/simulasi-pensiun.html"
+    />
+    <meta name="theme-color" content="#1a6b54" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="Simulasi Dana Pensiun 2026 - HitungPesangon"
+    />
+    <meta
+      property="og:description"
+      content="Simulasi proyeksi dana pensiun Anda dengan perhitungan compound interest dan inflasi. Hitung berapa yang perlu ditabung per bulan."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://hitungpesangon.my.id/simulasi-pensiun.html"
+    />
+    <meta
+      property="og:image"
+      content="https://hitungpesangon.my.id/og-image.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Simulasi Dana Pensiun 2026 - HitungPesangon"
+    />
+    <meta
+      name="twitter:description"
+      content="Simulasi proyeksi dana pensiun Anda dengan perhitungan compound interest dan inflasi. Hitung berapa yang perlu ditabung per bulan."
+    />
+    <meta
+      name="twitter:image"
+      content="https://hitungpesangon.my.id/og-image.png"
+    />
+    <link rel="apple-touch-icon" href="favicon.svg" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Simulasi Pensiun 2026",
+        "description": "Simulasi proyeksi dana pensiun berdasarkan usia, tabungan, dan asumsi inflasi.",
+        "url": "https://hitungpesangon.my.id/simulasi-pensiun.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "IDR"
+        },
+        "provider": {
+          "@type": "Organization",
+          "name": "HitungPesangon",
+          "url": "https://hitungpesangon.my.id/"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Beranda",
+            "item": "https://hitungpesangon.my.id/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Simulasi Pensiun",
+            "item": "https://hitungpesangon.my.id/simulasi-pensiun.html"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+    <header class="site-header">
+      <a href="index.html" class="brand">Hitung<span>Pesangon</span></a>
+      <nav aria-label="Navigasi utama">
+        <a href="pesangon.html">Pesangon</a>
+        <a href="jkp-jht.html">JKP &amp; JHT</a>
+        <a href="burn-rate.html">Dana Bertahan</a>
+        <a href="thr.html">THR</a>
+        <a href="pph21.html">PPh 21</a>
+        <a href="bpjs-kesehatan.html">BPJS Kesehatan</a>
+        <a href="gaji-bersih.html">Gaji Bersih</a>
+        <a href="dana-darurat.html">Dana Darurat</a>
+        <a href="simulasi-pensiun.html" class="active">Pensiun</a>
+        <a href="uang-sakit-cuti.html">Sakit &amp; Cuti</a>
+      </nav>
+    </header>
+    <main id="main-content" class="container" tabindex="-1">
+      <h1>Simulasi Dana Pensiun</h1>
+      <p class="intro">
+        Proyeksi apakah tabungan dan investasi Anda saat ini cukup untuk pensiun
+        nyaman. Masukkan asumsi inflasi dan return investasi untuk perhitungan
+        yang realistis.
+      </p>
+
+      <noscript
+        ><p class="noscript-warning">
+          <strong>JavaScript diperlukan.</strong> Kalkulator ini membutuhkan
+          JavaScript untuk menjalankan perhitungan di browser Anda.
+        </p></noscript
+      >
+
+      <form id="form-pensiun" class="calc-form" novalidate>
+        <div class="input-row">
+          <div>
+            <label for="usia-sekarang">Usia saat ini</label>
+            <input
+              type="number"
+              id="usia-sekarang"
+              min="18"
+              max="64"
+              placeholder="Contoh: 30"
+              required
+              aria-describedby="error-pensiun"
+            />
+          </div>
+          <div>
+            <label for="usia-pensiun">Usia pensiun</label>
+            <input
+              type="number"
+              id="usia-pensiun"
+              min="40"
+              max="70"
+              value="55"
+              placeholder="55"
+              required
+              aria-describedby="error-pensiun"
+            />
+          </div>
+        </div>
+
+        <label for="pengeluaran">Pengeluaran bulanan saat ini (Rp)</label>
+        <input
+          type="number"
+          id="pengeluaran"
+          min="0"
+          placeholder="Contoh: 5000000"
+          required
+          aria-describedby="error-pensiun"
+        />
+
+        <label for="tabungan">Tabungan/investasi saat ini (Rp)</label>
+        <input
+          type="number"
+          id="tabungan"
+          min="0"
+          placeholder="Contoh: 100000000"
+          aria-describedby="error-pensiun"
+        />
+
+        <label for="kontribusi"
+          >Kontribusi bulanan ke tabungan pensiun (Rp)</label
+        >
+        <input
+          type="number"
+          id="kontribusi"
+          min="0"
+          placeholder="Contoh: 2000000"
+          aria-describedby="error-pensiun"
+        />
+
+        <div class="input-row">
+          <div>
+            <label for="inflasi">Asumsi inflasi per tahun (%)</label>
+            <input
+              type="number"
+              id="inflasi"
+              min="0"
+              max="20"
+              step="0.5"
+              value="4"
+              placeholder="4"
+              aria-describedby="error-pensiun"
+            />
+          </div>
+          <div>
+            <label for="return-investasi"
+              >Asumsi return investasi per tahun (%)</label
+            >
+            <input
+              type="number"
+              id="return-investasi"
+              min="0"
+              max="30"
+              step="0.5"
+              value="7"
+              placeholder="7"
+              aria-describedby="error-pensiun"
+            />
+          </div>
+        </div>
+
+        <button type="submit">Hitung Simulasi Pensiun</button>
+        <p id="error-pensiun" class="error" role="alert"></p>
+      </form>
+
+      <section
+        id="hasil-pensiun"
+        class="result hidden"
+        tabindex="-1"
+        aria-live="polite"
+      ></section>
+      <section class="explainer">
+        <h2>Cara Simulasi Bekerja</h2>
+        <p>
+          Simulasi menggunakan <strong>compound interest</strong> (bunga
+          berbunga) untuk menghitung pertumbuhan tabungan Anda, dan
+          <strong>inflasi</strong> untuk menyesuaikan kebutuhan di masa pensiun.
+        </p>
+        <ul class="explainer-list">
+          <li>
+            <strong>Pengeluaran pensiun</strong> = pengeluaran saat ini × (1 +
+            inflasi)^tahun tersisa
+          </li>
+          <li>
+            <strong>Target pensiun</strong> = pengeluaran pensiun × 12 bulan ×
+            20 tahun (asumsi lama pensiun)
+          </li>
+          <li>
+            <strong>Dana terkumpul</strong> = future value tabungan + future
+            value kontribusi bulanan
+          </li>
+        </ul>
+        <p class="result-note">
+          Asumsi return investasi bersifat hipotetis. Konsultasikan dengan
+          perencana keuangan untuk perencanaan pensiun yang sesungguhnya.
+        </p>
+      </section>
+
+      <p>
+        <em
+          >Terakhir diperbarui: Juni 2026. Perhitungan bersifat estimasi
+          berdasarkan aturan umum yang disebutkan di atas. Bukan merupakan
+          nasihat hukum atau keuangan.</em
+        >
+      </p>
+
+      <section class="donation-card" aria-labelledby="donation-title">
+        <div class="donation-copy">
+          <p class="donation-kicker">Dukung proyek gratis ini</p>
+          <h2 id="donation-title">Bantu HitungPesangon tetap berjalan</h2>
+          <p>
+            Jika situs ini membantu Anda memahami hak finansial, pertimbangkan
+            untuk mendukung kami lewat Saweria agar tools ini tetap gratis dan
+            terus dikembangkan.
+          </p>
+        </div>
+        <a
+          class="donation-btn"
+          href="https://saweria.co/bryyzxm"
+          target="_blank"
+          rel="noopener"
+          >☕ Donasi via Saweria</a
+        >
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <strong>Disclaimer:</strong> Hasil bersifat simulasi dan bukan jaminan.
+        Return investasi aktual dapat berbeda secara signifikan.
+      </p>
+      <p>&copy; 2026 HitungPesangon</p>
+    </footer>
+
+    <script src="js/format.js"></script>
+    <script src="js/simulasi-pensiun.js"></script>
+  </body>
+</html>
