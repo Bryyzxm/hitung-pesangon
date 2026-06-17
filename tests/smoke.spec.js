@@ -152,7 +152,7 @@ test.describe('Skip link exists and targets main content', () => {
       expect(left).toBe('0px');
     });
 
-    test(`${path} skip link clears the desktop sidebar (left: 240px)`, async ({
+    test(`${path} skip link clears the desktop sidebar (left: 280px)`, async ({
       page,
     }) => {
       await page.setViewportSize(DESKTOP);
@@ -167,7 +167,7 @@ test.describe('Skip link exists and targets main content', () => {
       const left = await skipLink.evaluate(
         (el) => window.getComputedStyle(el).left,
       );
-      expect(left).toBe('240px');
+      expect(left).toBe('280px');
     });
   }
 });
@@ -267,7 +267,7 @@ test.describe('Mobile hamburger nav toggle', () => {
 
 // ── Desktop sidebar layout ─────────────────────────────────────
 test.describe('Desktop sidebar layout', () => {
-  test('sidebar is fixed on the left, 240px wide, full viewport height', async ({
+  test('sidebar is fixed on the left, 280px wide, full viewport height', async ({
     page,
   }) => {
     await page.setViewportSize(DESKTOP);
@@ -288,7 +288,7 @@ test.describe('Desktop sidebar layout', () => {
     expect(style.left).toBe('0px');
     expect(style.top).toBe('0px');
     expect(style.bottom).toBe('0px');
-    expect(style.width).toBe('240px');
+    expect(style.width).toBe('280px');
   });
 
   test('sidebar overflow is hidden (no scrollbars) and content fits at 800px', async ({
@@ -344,7 +344,7 @@ test.describe('Desktop sidebar layout', () => {
     const paddingLeft = await page.evaluate(
       () => window.getComputedStyle(document.body).paddingLeft,
     );
-    expect(paddingLeft).toBe('240px');
+    expect(paddingLeft).toBe('280px');
   });
 
   test('sidebar nav links stack vertically as block items', async ({
@@ -386,7 +386,7 @@ test.describe('Desktop sidebar layout', () => {
     });
     expect(style.borderLeftColor).toBe('rgb(242, 183, 5)');
     expect(style.borderLeftWidth).toBe('3px');
-    expect(style.color).toBe('rgb(242, 183, 5)');
+    expect(style.color).toBe('rgb(255, 241, 190)');
   });
 });
 
