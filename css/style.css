@@ -174,6 +174,7 @@ select[aria-invalid="true"] {
     bottom: 0;
     width: var(--sidebar-width);
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: stretch;
     justify-content: flex-start;
     padding: 1rem;
@@ -198,6 +199,7 @@ select[aria-invalid="true"] {
     background: rgba(255, 255, 255, 0.06);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
     text-align: center;
+    flex-shrink: 0;
   }
   .nav-toggle {
     display: none;
@@ -206,6 +208,8 @@ select[aria-invalid="true"] {
     display: flex;
     flex-direction: column;
     flex-basis: auto;
+    width: 100%;
+    min-width: 0;
     gap: 0.15rem;
     background: rgba(255, 255, 255, 0.06);
     padding: 0.55rem;
