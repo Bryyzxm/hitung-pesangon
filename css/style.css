@@ -93,21 +93,85 @@ select[aria-invalid="true"] {
 .brand span {
   color: var(--accent);
 }
+.nav-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-toggle-bars {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 1px;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 .site-header nav {
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  flex-basis: 100%;
+  background: var(--primary-dark);
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+}
+.site-header nav.is-open {
   display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
 }
 .site-header nav a {
   color: #e6f2ee;
   text-decoration: none;
   font-size: 0.95rem;
+  padding: 0.6rem 1rem;
+  display: block;
 }
 .site-header nav a.active,
 .site-header nav a:hover {
   color: var(--accent);
+}
+
+@media (min-width: 641px) {
+  .nav-toggle {
+    display: none;
+  }
+  .site-header nav {
+    display: flex;
+    flex-direction: row;
+    flex-basis: auto;
+    gap: 1rem;
+    background: transparent;
+    padding: 0;
+    margin-top: 0;
+    border-radius: 0;
+  }
+  .site-header nav a {
+    padding: 0;
+    display: inline;
+  }
 }
 
 /* Hero & cards */

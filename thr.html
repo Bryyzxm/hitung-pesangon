@@ -86,7 +86,18 @@
     <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
     <header class="site-header">
       <a href="index.html" class="brand">Hitung<span>Pesangon</span></a>
-      <nav aria-label="Navigasi utama">
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Buka menu navigasi"
+      >
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+      <nav id="primary-nav" aria-label="Navigasi utama">
         <a href="pesangon.html">Pesangon</a>
         <a href="jkp-jht.html">JKP &amp; JHT</a>
         <a href="burn-rate.html">Dana Bertahan</a>
@@ -200,6 +211,7 @@
       <p>&copy; 2026 HitungPesangon</p>
     </footer>
 
+    <script src="js/nav.js" defer></script>
     <script src="js/format.js"></script>
     <script src="js/thr.js"></script>
   </body>

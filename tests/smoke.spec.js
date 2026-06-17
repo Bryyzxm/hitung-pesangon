@@ -158,6 +158,94 @@ test.describe('Nav has accessible label', () => {
   });
 });
 
+test.describe('Mobile hamburger nav toggle', () => {
+  const MOBILE = { width: 375, height: 800 };
+  const DESKTOP = { width: 1280, height: 800 };
+
+  test('mobile (375x800) shows toggle button and hides nav', async ({ page }) => {
+    await page.setViewportSize(MOBILE);
+    await page.goto('/');
+
+    const toggle = page.locator('button.nav-toggle');
+    await expect(toggle).toBeAttached();
+
+    const toggleDisplay = await toggle.evaluate(
+      (el) => window.getComputedStyle(el).display,
+    );
+    expect(toggleDisplay).not.toBe('none');
+
+    const nav = page.locator('nav#primary-nav');
+    await expect(nav).toBeAttached();
+    const navDisplay = await nav.evaluate(
+      (el) => window.getComputedStyle(el).display,
+    );
+    expect(navDisplay).toBe('none');
+
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  });
+
+  test('clicking toggle opens nav and sets aria-expanded=true', async ({ page }) => {
+    await page.setViewportSize(MOBILE);
+    await page.goto('/pesangon.html');
+
+    const toggle = page.locator('button.nav-toggle');
+    await toggle.click();
+
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+
+    const navDisplay = await page.locator('nav#primary-nav').evaluate(
+      (el) => window.getComputedStyle(el).display,
+    );
+    expect(navDisplay).not.toBe('none');
+  });
+
+  test('clicking toggle a second time closes nav', async ({ page }) => {
+    await page.setViewportSize(MOBILE);
+    await page.goto('/pesangon.html');
+
+    const toggle = page.locator('button.nav-toggle');
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  });
+
+  test('Escape key closes an open menu', async ({ page }) => {
+    await page.setViewportSize(MOBILE);
+    await page.goto('/pesangon.html');
+
+    const toggle = page.locator('button.nav-toggle');
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+
+    await page.keyboard.press('Escape');
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+  });
+
+  test('desktop (1280x800) hides toggle button and shows nav', async ({ page }) => {
+    await page.setViewportSize(DESKTOP);
+    await page.goto('/');
+
+    const toggleDisplay = await page
+      .locator('button.nav-toggle')
+      .evaluate((el) => window.getComputedStyle(el).display);
+    expect(toggleDisplay).toBe('none');
+
+    const navDisplay = await page.locator('nav#primary-nav').evaluate(
+      (el) => window.getComputedStyle(el).display,
+    );
+    expect(navDisplay).not.toBe('none');
+  });
+
+  test('toggle button has an accessible label', async ({ page }) => {
+    await page.setViewportSize(MOBILE);
+    await page.goto('/');
+    const label = await page.locator('button.nav-toggle').getAttribute('aria-label');
+    expect(label).toBeTruthy();
+    expect((label || '').length).toBeGreaterThan(0);
+  });
+});
+
 // ── Fixture-driven calculator regression ───────────────────────
 const FIXTURE_PATH = path.join(__dirname, 'fixtures', 'calculator-cases.json');
 const FIXTURES = JSON.parse(fs.readFileSync(FIXTURE_PATH, 'utf-8'));
