@@ -3,25 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simulasi Dana Pensiun 2026 - HitungPesangon</title>
+    <title>Kalkulator Kompensasi PKWT (Kontrak) 2026 - HitungPesangon</title>
     <link
       rel="canonical"
-      href="https://hitungpesangon.my.id/simulasi-pensiun.html"
+      href="https://hitungpesangon.my.id/kompensasi-pkwt.html"
     />
     <meta name="theme-color" content="#1a6b54" />
     <meta name="robots" content="index, follow" />
     <meta
       property="og:title"
-      content="Simulasi Dana Pensiun 2026 - HitungPesangon"
+      content="Kalkulator Kompensasi PKWT (Kontrak) 2026 - HitungPesangon"
     />
     <meta
       property="og:description"
-      content="Simulasi proyeksi dana pensiun Anda dengan perhitungan compound interest dan inflasi. Hitung berapa yang perlu ditabung per bulan."
+      content="Hitung kompensasi untuk pekerja PKWT (kontrak) saat kontrak berakhir sesuai PP 35/2021 dan Putusan MK 168/2023. 1 bulan upah per 12 bulan masa kerja."
     />
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
-      content="https://hitungpesangon.my.id/simulasi-pensiun.html"
+      content="https://hitungpesangon.my.id/kompensasi-pkwt.html"
     />
     <meta
       property="og:image"
@@ -32,11 +32,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Simulasi Dana Pensiun 2026 - HitungPesangon"
+      content="Kalkulator Kompensasi PKWT (Kontrak) 2026 - HitungPesangon"
     />
     <meta
       name="twitter:description"
-      content="Simulasi proyeksi dana pensiun Anda dengan perhitungan compound interest dan inflasi. Hitung berapa yang perlu ditabung per bulan."
+      content="Hitung kompensasi untuk pekerja PKWT (kontrak) saat kontrak berakhir sesuai PP 35/2021 dan Putusan MK 168/2023. 1 bulan upah per 12 bulan masa kerja."
     />
     <meta
       name="twitter:image"
@@ -50,9 +50,9 @@
       {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Simulasi Pensiun 2026",
-        "description": "Simulasi proyeksi dana pensiun berdasarkan usia, tabungan, dan asumsi inflasi.",
-        "url": "https://hitungpesangon.my.id/simulasi-pensiun.html",
+        "name": "Kalkulator Kompensasi PKWT (Kontrak)",
+        "description": "Hitung kompensasi untuk pekerja PKWT (kontrak) saat kontrak berakhir sesuai PP 35/2021 dan Putusan MK 168/2023.",
+        "url": "https://hitungpesangon.my.id/kompensasi-pkwt.html",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "All",
         "offers": {
@@ -81,8 +81,8 @@
           {
             "@type": "ListItem",
             "position": 2,
-            "name": "Simulasi Pensiun",
-            "item": "https://hitungpesangon.my.id/simulasi-pensiun.html"
+            "name": "Kalkulator Kompensasi PKWT",
+            "item": "https://hitungpesangon.my.id/kompensasi-pkwt.html"
           }
         ]
       }
@@ -112,19 +112,22 @@
         <a href="bpjs-kesehatan.html">BPJS Kesehatan</a>
         <a href="gaji-bersih.html">Gaji Bersih</a>
         <a href="dana-darurat.html">Dana Darurat</a>
-        <a href="simulasi-pensiun.html" class="active">Pensiun</a>
+        <a href="simulasi-pensiun.html">Pensiun</a>
         <a href="uang-sakit-cuti.html">Sakit &amp; Cuti</a>
         <a href="klaim-jkp-2025.html">Klaim JKP 2025</a>
         <a href="bhr-ojol.html">BHR Ojol 2026</a>
-        <a href="kompensasi-pkwt.html">Kompensasi PKWT</a>
+        <a href="kompensasi-pkwt.html" class="active">Kompensasi PKWT</a>
       </nav>
     </header>
     <main id="main-content" class="container" tabindex="-1">
-      <h1>Simulasi Dana Pensiun</h1>
+      <h1>Kalkulator Kompensasi PKWT (Kontrak)</h1>
       <p class="intro">
-        Proyeksi apakah tabungan dan investasi Anda saat ini cukup untuk pensiun
-        nyaman. Masukkan asumsi inflasi dan return investasi untuk perhitungan
-        yang realistis.
+        Hitung estimasi
+        <strong>kompensasi</strong> yang berhak Anda terima sebagai pekerja
+        <strong>PKWT (kontrak)</strong> saat kontrak berakhir, sesuai
+        <strong>PP 35/2021</strong> dan <strong>Putusan MK 168/2023</strong>.
+        Berbeda dengan pesangon (PKWTT), kompensasi PKWT dihitung
+        <strong>1 bulan upah per 12 bulan masa kerja</strong>.
       </p>
 
       <noscript
@@ -134,138 +137,120 @@
         </p></noscript
       >
 
-      <form id="form-pensiun" class="calc-form" novalidate>
-        <div class="input-row">
-          <div>
-            <label for="usia-sekarang">Usia saat ini</label>
-            <input
-              type="number"
-              id="usia-sekarang"
-              min="18"
-              max="64"
-              placeholder="Contoh: 30"
-              required
-              aria-describedby="error-pensiun"
-            />
-          </div>
-          <div>
-            <label for="usia-pensiun">Usia pensiun</label>
-            <input
-              type="number"
-              id="usia-pensiun"
-              min="40"
-              max="70"
-              value="55"
-              placeholder="55"
-              required
-              aria-describedby="error-pensiun"
-            />
-          </div>
-        </div>
-
-        <label for="pengeluaran">Pengeluaran bulanan saat ini (Rp)</label>
+      <form id="form-pkwt" class="calc-form" novalidate>
+        <label for="upah">Upah bulanan terakhir (Rp)</label>
         <input
           type="number"
-          id="pengeluaran"
+          id="upah"
           min="0"
           placeholder="Contoh: 5000000"
           required
-          aria-describedby="error-pensiun"
+          aria-describedby="error-pkwt"
         />
 
-        <label for="tabungan">Tabungan/investasi saat ini (Rp)</label>
+        <label for="tanggal-mulai">Tanggal mulai kontrak</label>
         <input
-          type="number"
-          id="tabungan"
-          min="0"
-          placeholder="Contoh: 100000000"
-          aria-describedby="error-pensiun"
+          type="date"
+          id="tanggal-mulai"
+          required
+          aria-describedby="error-pkwt"
         />
 
-        <label for="kontribusi"
-          >Kontribusi bulanan ke tabungan pensiun (Rp)</label
+        <label for="tanggal-akhir-rencana"
+          >Tanggal akhir rencana (saat kontrak ditandatangani)</label
         >
         <input
-          type="number"
-          id="kontribusi"
-          min="0"
-          placeholder="Contoh: 2000000"
-          aria-describedby="error-pensiun"
+          type="date"
+          id="tanggal-akhir-rencana"
+          required
+          aria-describedby="error-pkwt"
         />
 
-        <div class="input-row">
-          <div>
-            <label for="inflasi">Asumsi inflasi per tahun (%)</label>
-            <input
-              type="number"
-              id="inflasi"
-              min="0"
-              max="20"
-              step="0.5"
-              value="4"
-              placeholder="4"
-              aria-describedby="error-pensiun"
-            />
-          </div>
-          <div>
-            <label for="return-investasi"
-              >Asumsi return investasi per tahun (%)</label
-            >
-            <input
-              type="number"
-              id="return-investasi"
-              min="0"
-              max="30"
-              step="0.5"
-              value="7"
-              placeholder="7"
-              aria-describedby="error-pensiun"
-            />
-          </div>
-        </div>
+        <label for="tanggal-akhir-aktual"
+          >Tanggal kerja benar-benar berakhir</label
+        >
+        <input
+          type="date"
+          id="tanggal-akhir-aktual"
+          required
+          aria-describedby="error-pkwt"
+        />
 
-        <button type="submit">Hitung Simulasi Pensiun</button>
-        <p id="error-pensiun" class="error" role="alert"></p>
+        <label for="status">Status kontrak</label>
+        <select id="status" required aria-describedby="error-pkwt">
+          <option value="">-- Pilih status --</option>
+          <option value="habis_normal">Habis sesuai rencana</option>
+          <option value="diputus_perusahaan">
+            Diputus perusahaan sebelum habis
+          </option>
+        </select>
+
+        <label for="diangkat-pkwtt">
+          <input type="checkbox" id="diangkat-pkwtt" />
+          Diangkat menjadi PKWTT (pegawai tetap) setelah kontrak berakhir
+        </label>
+
+        <button type="submit">Hitung Kompensasi</button>
+        <p id="error-pkwt" class="error" role="alert"></p>
       </form>
 
       <section
-        id="hasil-pensiun"
+        id="hasil-pkwt"
         class="result hidden"
         tabindex="-1"
         aria-live="polite"
       ></section>
       <section class="explainer">
-        <h2>Cara Simulasi Bekerja</h2>
+        <h2>Kompensasi vs Pesangon</h2>
+        <table>
+          <caption>
+            Perbedaan kompensasi PKWT dan pesangon PKWTT
+          </caption>
+          <tr>
+            <th>Aspek</th>
+            <th>Pesangon (PKWTT)</th>
+            <th>Kompensasi (PKWT)</th>
+          </tr>
+          <tr>
+            <td>Alasan</td>
+            <td>PHK, pensiun, meninggal</td>
+            <td>Kontrak berakhir (normal atau diputus)</td>
+          </tr>
+          <tr>
+            <td>Formula</td>
+            <td>Tabel progresif 1-9 bulan (PP 35/2021 Pasal 40)</td>
+            <td>1 bulan upah per 12 bulan kerja</td>
+          </tr>
+          <tr>
+            <td>Maksimal</td>
+            <td>9 bulan (UP)</td>
+            <td>Tidak ada batas</td>
+          </tr>
+          <tr>
+            <td>Pengali</td>
+            <td>Berdasarkan sebab PHK</td>
+            <td>Tidak ada</td>
+          </tr>
+          <tr>
+            <td>Sumber</td>
+            <td>PP 35/2021 Pasal 40-42</td>
+            <td>PP 35/2021 Pasal 15-16, 61</td>
+          </tr>
+        </table>
         <p>
-          Simulasi menggunakan <strong>compound interest</strong> (bunga
-          berbunga) untuk menghitung pertumbuhan tabungan Anda, dan
-          <strong>inflasi</strong> untuk menyesuaikan kebutuhan di masa pensiun.
-        </p>
-        <ul class="explainer-list">
-          <li>
-            <strong>Pengeluaran pensiun</strong> = pengeluaran saat ini × (1 +
-            inflasi)^tahun tersisa
-          </li>
-          <li>
-            <strong>Target pensiun</strong> = pengeluaran pensiun × 12 bulan ×
-            20 tahun (asumsi lama pensiun)
-          </li>
-          <li>
-            <strong>Dana terkumpul</strong> = future value tabungan + future
-            value kontribusi bulanan
-          </li>
-        </ul>
-        <p class="result-note">
-          Asumsi return investasi bersifat hipotetis. Konsultasikan dengan
-          perencana keuangan untuk perencanaan pensiun yang sesungguhnya.
+          Jika Anda diangkat menjadi PKWTT setelah kontrak berakhir, cek juga
+          <a href="pesangon.html">kalkulator pesangon</a> untuk simulasi benefit
+          PKWTT penuh. Untuk memahami hak tambahan saat PHK sebagai PKWTT atau
+          PKWT, lihat
+          <a href="klaim-jkp-2025.html">Kalkulator Klaim JKP 2025</a>.
         </p>
       </section>
 
       <p>
         <em
           >Terakhir diperbarui: Juni 2026. Perhitungan bersifat estimasi
-          berdasarkan aturan umum yang disebutkan di atas. Bukan merupakan
-          nasihat hukum atau keuangan.</em
+          berdasarkan aturan umum PP 35/2021 dan Putusan MK 168/2023. Untuk
+          kasus spesifik, konsultasi dengan ahli hukum ketenagakerjaan.</em
         >
       </p>
 
@@ -288,17 +273,17 @@
         >
       </section>
     </main>
-
     <footer class="site-footer">
       <p>
-        <strong>Disclaimer:</strong> Hasil bersifat simulasi dan bukan jaminan.
-        Return investasi aktual dapat berbeda secara signifikan.
+        <strong>Disclaimer:</strong> Hasil bersifat estimasi. Nominal kompensasi
+        final mengikuti perjanjian kerja, PKB, dan kebijakan perusahaan. Bukan
+        nasihat hukum.
       </p>
       <p>&copy; 2026 HitungPesangon</p>
     </footer>
 
     <script src="js/nav.js" defer></script>
     <script src="js/format.js"></script>
-    <script src="js/simulasi-pensiun.js"></script>
+    <script src="js/kompensasi-pkwt.js"></script>
   </body>
 </html>

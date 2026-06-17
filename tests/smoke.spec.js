@@ -250,7 +250,7 @@ test.describe('Mobile hamburger nav toggle', () => {
 const FIXTURE_PATH = path.join(__dirname, 'fixtures', 'calculator-cases.json');
 const FIXTURES = JSON.parse(fs.readFileSync(FIXTURE_PATH, 'utf-8'));
 
-test.describe('Calculator regression fixtures (all 10)', () => {
+test.describe('Calculator regression fixtures (all 13)', () => {
   for (const [name, fx] of Object.entries(FIXTURES)) {
     test(`${name}: bigNumber matches observed output`, async ({ page }) => {
       await page.goto('/' + fx.page);

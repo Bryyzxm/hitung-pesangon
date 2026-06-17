@@ -79,9 +79,8 @@
     ],
     "bigNumber": "Rp 17.100.000",
     "expectedCells": [
-      ["JKP bulan ke-1 s.d. 3", "45% × Rp 5.000.000 / bln", "Rp 2.250.000 / bln"],
-      ["JKP bulan ke-4 s.d. 6", "25% × Rp 5.000.000 / bln", "Rp 1.250.000 / bln"],
-      ["Total JKP (6 bulan)", "Rp 10.500.000"]
+      ["JKP per bulan (PP 6/2025)", "60% × Rp 5.000.000 / bln", "Rp 3.000.000 / bln"],
+      ["Total JKP (6 bulan flat)", "Rp 18.000.000"]
     ]
   },
   "burn-rate": {
@@ -169,6 +168,41 @@
     "expectedCells": [
       ["4 bulan pertama (25%)", "10 hari × 25% × Rp 200.000", "Rp 500.000"],
       ["Uang cuti tahunan", "3 hari × 2 × Rp 200.000", "Rp 1.200.000"]
+    ]
+  },
+  "bhr-ojol": {
+    "page": "bhr-ojol.html",
+    "formId": "form-bhr",
+    "resultId": "hasil-bhr",
+    "inputs": [
+      { "id": "platform", "type": "select", "value": "gojek" },
+      { "id": "status", "type": "select", "value": "aktif_6plus" },
+      { "id": "pendapatan", "value": "5000000" },
+      { "id": "hari", "type": "select", "value": "6" },
+      { "id": "bonus", "value": "0" }
+    ],
+    "bigNumber": "Rp 900.000",
+    "expectedCells": [
+      ["BHR 2026", "Rp 900.000"],
+      ["Bandingkan BHR 2025 (20%)", "Rp 920.000"]
+    ]
+  },
+  "kompensasi-pkwt": {
+    "page": "kompensasi-pkwt.html",
+    "formId": "form-pkwt",
+    "resultId": "hasil-pkwt",
+    "inputs": [
+      { "id": "upah", "value": "5000000" },
+      { "id": "tanggal-mulai", "value": "2024-01-01" },
+      { "id": "tanggal-akhir-rencana", "value": "2026-01-01" },
+      { "id": "tanggal-akhir-aktual", "value": "2025-01-01" },
+      { "id": "status", "type": "select", "value": "diputus_perusahaan" }
+    ],
+    "bigNumber": "Rp 10.000.000",
+    "expectedCells": [
+      ["Kompensasi normal", "Rp 5.000.000"],
+      ["Tambahan kompensasi", "Rp 5.000.000"],
+      ["Total kompensasi", "Rp 10.000.000"]
     ]
   }
 }
