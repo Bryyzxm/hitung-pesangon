@@ -381,12 +381,16 @@ test.describe('Desktop sidebar layout', () => {
       return {
         borderLeftColor: cs.borderLeftColor,
         borderLeftWidth: cs.borderLeftWidth,
+        borderRightWidth: cs.borderRightWidth,
         color: cs.color,
+        textAlign: cs.textAlign,
       };
     });
     expect(style.borderLeftColor).toBe('rgb(242, 183, 5)');
     expect(style.borderLeftWidth).toBe('3px');
+    expect(style.borderRightWidth).toBe('3px');
     expect(style.color).toBe('rgb(255, 241, 190)');
+    expect(style.textAlign).toBe('center');
   });
 });
 
