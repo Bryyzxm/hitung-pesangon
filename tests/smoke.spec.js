@@ -392,6 +392,51 @@ test.describe('Desktop sidebar layout', () => {
     expect(style.color).toBe('rgb(255, 241, 190)');
     expect(style.textAlign).toBe('center');
   });
+
+  test('sidebar is the topmost element at its center (main cannot cover tools)', async ({
+    page,
+  }) => {
+    await page.setViewportSize(DESKTOP);
+    await page.goto('/');
+
+    const probe = await page.evaluate(() => {
+      const links = document.querySelectorAll('nav#primary-nav a');
+      const samples = [];
+      links.forEach((a, i) => {
+        if (i % 4 !== 0) return;
+        const r = a.getBoundingClientRect();
+        const el = document.elementFromPoint(
+          r.x + r.width / 2,
+          r.y + r.height / 2,
+        );
+        samples.push({
+          linkText: a.textContent.trim().slice(0, 24),
+          topTag: el ? el.tagName : null,
+          topClass: el ? el.className : null,
+          inSidebar: el ? el.closest('header.site-header') !== null : false,
+        });
+      });
+      return samples;
+    });
+
+    expect(probe.length).toBeGreaterThan(0);
+    for (const s of probe) {
+      expect(s.topTag).toBe('A');
+      expect(s.inSidebar).toBe(true);
+    }
+  });
+
+  test('sidebar z-index is 100 so it always sits above main content', async ({
+    page,
+  }) => {
+    await page.setViewportSize(DESKTOP);
+    await page.goto('/');
+
+    const z = await page
+      .locator('header.site-header')
+      .evaluate((el) => window.getComputedStyle(el).zIndex);
+    expect(z).toBe('100');
+  });
 });
 
 // ── Fixture-driven calculator regression ───────────────────────

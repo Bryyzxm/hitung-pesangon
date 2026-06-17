@@ -16,4 +16,6 @@ node_modules/
 tests/screenshots/
 tests/visual-sidebar.js
 tests/dom-report.js
+tests/dom-inspect.js
+tests/dom-inspect-home.js
 tests/add-nav-heading.js
