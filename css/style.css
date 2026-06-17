@@ -165,15 +165,16 @@ select[aria-invalid="true"] {
     flex-direction: column;
     align-items: stretch;
     justify-content: flex-start;
-    padding: 1.5rem 0;
-    gap: 1.25rem;
-    overflow-y: auto;
+    padding: 1.5rem 0 1.25rem;
+    gap: 0;
+    overflow: hidden;
   }
   .brand {
     display: block;
-    padding: 0 1.25rem;
+    padding: 0 1.25rem 1.25rem;
     font-size: 1.25rem;
     line-height: 1.3;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   .nav-toggle {
     display: none;
@@ -182,15 +183,24 @@ select[aria-invalid="true"] {
     display: flex;
     flex-direction: column;
     flex-basis: auto;
-    gap: 0.1rem;
+    gap: 0;
     background: transparent;
     padding: 0;
     margin-top: 0;
     border-radius: 0;
   }
+  .nav-heading {
+    padding: 1rem 1.25rem 0.4rem;
+    margin: 0;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.55);
+  }
   .site-header nav a {
     color: #e6f2ee;
-    padding: 0.65rem 1.25rem;
+    padding: 0.55rem 1.25rem;
     display: block;
     font-size: 0.95rem;
     border-left: 3px solid transparent;

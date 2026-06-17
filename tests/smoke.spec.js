@@ -291,6 +291,50 @@ test.describe('Desktop sidebar layout', () => {
     expect(style.width).toBe('240px');
   });
 
+  test('sidebar overflow is hidden (no scrollbars) and content fits at 800px', async ({
+    page,
+  }) => {
+    await page.setViewportSize(DESKTOP);
+    await page.goto('/');
+
+    const overflow = await page
+      .locator('header.site-header')
+      .evaluate((el) => {
+        const cs = window.getComputedStyle(el);
+        return { overflow: cs.overflow, overflowX: cs.overflowX, overflowY: cs.overflowY };
+      });
+    expect(overflow.overflow).toBe('hidden');
+    expect(overflow.overflowX).toBe('hidden');
+    expect(overflow.overflowY).toBe('hidden');
+
+    const sizes = await page
+      .locator('header.site-header')
+      .evaluate((el) => ({ scroll: el.scrollHeight, client: el.clientHeight }));
+    expect(sizes.scroll).toBeLessThanOrEqual(sizes.client);
+  });
+
+  test('sidebar shows a Kalkulator section heading above the nav links', async ({
+    page,
+  }) => {
+    await page.setViewportSize(DESKTOP);
+    await page.goto('/pesangon.html');
+
+    const heading = page.locator('nav#primary-nav > h2.nav-heading');
+    await expect(heading).toBeAttached();
+    await expect(heading).toHaveText('Kalkulator');
+
+    const order = await page.evaluate(() => {
+      const nav = document.getElementById('primary-nav');
+      const kids = Array.from(nav.children);
+      return {
+        firstTag: kids[0].tagName.toLowerCase(),
+        secondTag: kids[1] ? kids[1].tagName.toLowerCase() : null,
+      };
+    });
+    expect(order.firstTag).toBe('h2');
+    expect(order.secondTag).toBe('a');
+  });
+
   test('body content is offset to the right of the sidebar', async ({
     page,
   }) => {
