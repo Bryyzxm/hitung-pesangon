@@ -129,9 +129,13 @@ test.describe('Invalid form submission focuses the invalid field', () => {
 });
 
 // ── Skip link ───────────────────────────────────────────────────
+const MOBILE = { width: 375, height: 800 };
+const DESKTOP = { width: 1280, height: 800 };
+
 test.describe('Skip link exists and targets main content', () => {
   for (const { path } of PAGES) {
-    test(`${path} has skip link to #main-content`, async ({ page }) => {
+    test(`${path} has skip link to #main-content (mobile)`, async ({ page }) => {
+      await page.setViewportSize(MOBILE);
       await page.goto(path);
       const skipLink = page.locator('a.skip-link[href="#main-content"]');
       await expect(skipLink).toBeAttached();
@@ -141,11 +145,29 @@ test.describe('Skip link exists and targets main content', () => {
       await page.keyboard.press('Tab');
       await expect(skipLink).toBeFocused();
 
-      // After focus, skip-link should be visible (left: 0)
+      // Mobile: skip-link should be visible at top-left (left: 0)
       const left = await skipLink.evaluate(
         (el) => window.getComputedStyle(el).left,
       );
       expect(left).toBe('0px');
+    });
+
+    test(`${path} skip link clears the desktop sidebar (left: 240px)`, async ({
+      page,
+    }) => {
+      await page.setViewportSize(DESKTOP);
+      await page.goto(path);
+      const skipLink = page.locator('a.skip-link[href="#main-content"]');
+      await expect(skipLink).toBeAttached();
+
+      await page.keyboard.press('Tab');
+      await expect(skipLink).toBeFocused();
+
+      // Desktop: skip-link must sit to the right of the fixed sidebar
+      const left = await skipLink.evaluate(
+        (el) => window.getComputedStyle(el).left,
+      );
+      expect(left).toBe('240px');
     });
   }
 });
@@ -159,9 +181,6 @@ test.describe('Nav has accessible label', () => {
 });
 
 test.describe('Mobile hamburger nav toggle', () => {
-  const MOBILE = { width: 375, height: 800 };
-  const DESKTOP = { width: 1280, height: 800 };
-
   test('mobile (375x800) shows toggle button and hides nav', async ({ page }) => {
     await page.setViewportSize(MOBILE);
     await page.goto('/');
@@ -243,6 +262,87 @@ test.describe('Mobile hamburger nav toggle', () => {
     const label = await page.locator('button.nav-toggle').getAttribute('aria-label');
     expect(label).toBeTruthy();
     expect((label || '').length).toBeGreaterThan(0);
+  });
+});
+
+// ── Desktop sidebar layout ─────────────────────────────────────
+test.describe('Desktop sidebar layout', () => {
+  test('sidebar is fixed on the left, 240px wide, full viewport height', async ({
+    page,
+  }) => {
+    await page.setViewportSize(DESKTOP);
+    await page.goto('/');
+
+    const header = page.locator('header.site-header');
+    const style = await header.evaluate((el) => {
+      const cs = window.getComputedStyle(el);
+      return {
+        position: cs.position,
+        left: cs.left,
+        top: cs.top,
+        bottom: cs.bottom,
+        width: cs.width,
+      };
+    });
+    expect(style.position).toBe('fixed');
+    expect(style.left).toBe('0px');
+    expect(style.top).toBe('0px');
+    expect(style.bottom).toBe('0px');
+    expect(style.width).toBe('240px');
+  });
+
+  test('body content is offset to the right of the sidebar', async ({
+    page,
+  }) => {
+    await page.setViewportSize(DESKTOP);
+    await page.goto('/');
+
+    const paddingLeft = await page.evaluate(
+      () => window.getComputedStyle(document.body).paddingLeft,
+    );
+    expect(paddingLeft).toBe('240px');
+  });
+
+  test('sidebar nav links stack vertically as block items', async ({
+    page,
+  }) => {
+    await page.setViewportSize(DESKTOP);
+    await page.goto('/');
+
+    const navStyle = await page.locator('nav#primary-nav').evaluate((el) => {
+      const cs = window.getComputedStyle(el);
+      return { display: cs.display, flexDirection: cs.flexDirection };
+    });
+    expect(navStyle.display).toBe('flex');
+    expect(navStyle.flexDirection).toBe('column');
+
+    const firstLinkDisplay = await page
+      .locator('nav#primary-nav a')
+      .first()
+      .evaluate((el) => window.getComputedStyle(el).display);
+    expect(firstLinkDisplay).toBe('block');
+  });
+
+  test('active link on calculator page shows the accent indicator', async ({
+    page,
+  }) => {
+    await page.setViewportSize(DESKTOP);
+    await page.goto('/pesangon.html');
+
+    const activeLink = page.locator('nav#primary-nav a.active');
+    await expect(activeLink).toBeAttached();
+
+    const style = await activeLink.evaluate((el) => {
+      const cs = window.getComputedStyle(el);
+      return {
+        borderLeftColor: cs.borderLeftColor,
+        borderLeftWidth: cs.borderLeftWidth,
+        color: cs.color,
+      };
+    });
+    expect(style.borderLeftColor).toBe('rgb(242, 183, 5)');
+    expect(style.borderLeftWidth).toBe('3px');
+    expect(style.color).toBe('rgb(242, 183, 5)');
   });
 });
 

@@ -11,3 +11,7 @@ node_modules/
 *.swp
 *.tmp
 *.log
+
+# Throwaway visual QA artifacts (one-off Playwright captures, not part of CI)
+tests/screenshots/
+tests/visual-sidebar.js
